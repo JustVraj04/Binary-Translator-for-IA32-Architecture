@@ -1,0 +1,37 @@
+
+fib.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <fib>:
+   0:	55                   	push   %ebp
+   1:	89 e5                	mov    %esp,%ebp
+   3:	56                   	push   %esi
+   4:	53                   	push   %ebx
+   5:	83 7d 08 01          	cmpl   $0x1,0x8(%ebp)
+   9:	77 0c                	ja     17 <fib+0x17>
+   b:	b8 01 00 00 00       	mov    $0x1,%eax
+  10:	ba 00 00 00 00       	mov    $0x0,%edx
+  15:	eb 2c                	jmp    43 <fib+0x43>
+  17:	8b 45 08             	mov    0x8(%ebp),%eax
+  1a:	83 e8 01             	sub    $0x1,%eax
+  1d:	83 ec 0c             	sub    $0xc,%esp
+  20:	50                   	push   %eax
+  21:	e8 fc ff ff ff       	call   22 <fib+0x22>
+  26:	83 c4 10             	add    $0x10,%esp
+  29:	89 c3                	mov    %eax,%ebx
+  2b:	89 d6                	mov    %edx,%esi
+  2d:	8b 45 08             	mov    0x8(%ebp),%eax
+  30:	83 e8 02             	sub    $0x2,%eax
+  33:	83 ec 0c             	sub    $0xc,%esp
+  36:	50                   	push   %eax
+  37:	e8 fc ff ff ff       	call   38 <fib+0x38>
+  3c:	83 c4 10             	add    $0x10,%esp
+  3f:	01 d8                	add    %ebx,%eax
+  41:	11 f2                	adc    %esi,%edx
+  43:	8d 65 f8             	lea    -0x8(%ebp),%esp
+  46:	5b                   	pop    %ebx
+  47:	5e                   	pop    %esi
+  48:	5d                   	pop    %ebp
+  49:	c3                   	ret    

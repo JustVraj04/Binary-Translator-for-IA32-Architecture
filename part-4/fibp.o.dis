@@ -1,0 +1,65 @@
+
+fibp.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <fibp>:
+   0:	55                   	push   %ebp
+   1:	89 e5                	mov    %esp,%ebp
+   3:	53                   	push   %ebx
+   4:	83 ec 14             	sub    $0x14,%esp
+   7:	89 e0                	mov    %esp,%eax
+   9:	89 c3                	mov    %eax,%ebx
+   b:	8b 45 08             	mov    0x8(%ebp),%eax
+   e:	8b 00                	mov    (%eax),%eax
+  10:	89 45 f0             	mov    %eax,-0x10(%ebp)
+  13:	8b 45 f0             	mov    -0x10(%ebp),%eax
+  16:	83 c0 02             	add    $0x2,%eax
+  19:	8d 50 ff             	lea    -0x1(%eax),%edx
+  1c:	89 55 ec             	mov    %edx,-0x14(%ebp)
+  1f:	c1 e0 02             	shl    $0x2,%eax
+  22:	8d 50 03             	lea    0x3(%eax),%edx
+  25:	b8 10 00 00 00       	mov    $0x10,%eax
+  2a:	83 e8 01             	sub    $0x1,%eax
+  2d:	01 d0                	add    %edx,%eax
+  2f:	b9 10 00 00 00       	mov    $0x10,%ecx
+  34:	ba 00 00 00 00       	mov    $0x0,%edx
+  39:	f7 f1                	div    %ecx
+  3b:	6b c0 10             	imul   $0x10,%eax,%eax
+  3e:	29 c4                	sub    %eax,%esp
+  40:	89 e0                	mov    %esp,%eax
+  42:	83 c0 03             	add    $0x3,%eax
+  45:	c1 e8 02             	shr    $0x2,%eax
+  48:	c1 e0 02             	shl    $0x2,%eax
+  4b:	89 45 e8             	mov    %eax,-0x18(%ebp)
+  4e:	8b 45 e8             	mov    -0x18(%ebp),%eax
+  51:	c7 00 01 00 00 00    	movl   $0x1,(%eax)
+  57:	8b 45 e8             	mov    -0x18(%ebp),%eax
+  5a:	c7 40 04 01 00 00 00 	movl   $0x1,0x4(%eax)
+  61:	c7 45 f4 02 00 00 00 	movl   $0x2,-0xc(%ebp)
+  68:	eb 28                	jmp    92 <fibp+0x92>
+  6a:	8b 45 f4             	mov    -0xc(%ebp),%eax
+  6d:	8d 50 ff             	lea    -0x1(%eax),%edx
+  70:	8b 45 e8             	mov    -0x18(%ebp),%eax
+  73:	8b 14 90             	mov    (%eax,%edx,4),%edx
+  76:	8b 45 f4             	mov    -0xc(%ebp),%eax
+  79:	8d 48 fe             	lea    -0x2(%eax),%ecx
+  7c:	8b 45 e8             	mov    -0x18(%ebp),%eax
+  7f:	8b 04 88             	mov    (%eax,%ecx,4),%eax
+  82:	8d 0c 02             	lea    (%edx,%eax,1),%ecx
+  85:	8b 45 e8             	mov    -0x18(%ebp),%eax
+  88:	8b 55 f4             	mov    -0xc(%ebp),%edx
+  8b:	89 0c 90             	mov    %ecx,(%eax,%edx,4)
+  8e:	83 45 f4 01          	addl   $0x1,-0xc(%ebp)
+  92:	8b 45 f4             	mov    -0xc(%ebp),%eax
+  95:	3b 45 f0             	cmp    -0x10(%ebp),%eax
+  98:	7e d0                	jle    6a <fibp+0x6a>
+  9a:	8b 45 e8             	mov    -0x18(%ebp),%eax
+  9d:	8b 55 f0             	mov    -0x10(%ebp),%edx
+  a0:	8b 04 90             	mov    (%eax,%edx,4),%eax
+  a3:	99                   	cltd   
+  a4:	89 dc                	mov    %ebx,%esp
+  a6:	8b 5d fc             	mov    -0x4(%ebp),%ebx
+  a9:	c9                   	leave  
+  aa:	c3                   	ret    
